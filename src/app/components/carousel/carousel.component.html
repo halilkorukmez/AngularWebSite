@@ -1,0 +1,9 @@
+<ngb-carousel>
+  <ng-template ngbSlide *ngFor="let sliders of slider">
+    <img [src]="createImgPath(sliders.fileUrl)"  class="ana" alt="Random slide">
+    <div class="carousel-caption">
+      <h3>{{sliders.title}}</h3>
+      <p [innerText]="sliders.content"></p>
+    </div>
+  </ng-template>
+</ngb-carousel>

@@ -1,0 +1,63 @@
+<div class="page">
+    <div class="row text-center">
+        <div class="col-md-12">
+            <div *ngIf="dataLoaded==false" class=" text-center text-dark" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="btn"> <button type="button"data-bs-toggle="modal" data-bs-target="#exampleModal" class="mt-3 btn btn-outline-success">H&#160;ı&#160;z&#160;l&#160;ı&#160;&#160;
+                S&#160;i&#160;p&#160;a&#160;r&#160;i&#160;ş&#160;&#160; İ&#160;ç&#160;i&#160;n&#160;&#160;
+                T&#160;ı&#160;k&#160;l&#160;a&#160;y&#160;ı&#160;n&#160;.. </button>
+    
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Bizimle iletişime geç</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+    <app-footer-contact></app-footer-contact>
+            </div>
+            <div class="modal-footer">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+            <div class="row">
+                <div *ngFor="let product of products" class="col-md-4">
+                    <div *ngIf="dataLoaded==true" class="d-flex justify-content-center  mt-5 ">
+                        <div class="card">
+                            <div class="product-img">
+                                <img [src]="createImgPath(product.file)" alt="">
+                            </div>
+
+                            <div class="card-footer">
+                                <div class="title">
+                                    <h3>{{product.productName}}</h3>
+                                </div>
+
+                                <div class="product-options">
+                                    <div class="sizes">
+                                        <strong>Ürün Açıklaması</strong>
+                                        <span>{{product.description}}</span>
+                                    </div>
+                                    <div class="colors">
+                                        <strong>Renkler</strong>
+                                        <span class="dark"></span>
+                                        <span class="blue"></span>
+                                        <span class="red"></span>
+                                        <span class="white"></span>
+                                        <span class="grey"></span>
+                                        <span class="indigo"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

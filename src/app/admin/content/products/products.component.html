@@ -1,0 +1,121 @@
+<div class="row">
+    <app-header></app-header>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-md-10 mt-5 mb-5">
+        <div class="col-md-6">
+            <p>
+
+                <button class="btn btn-success" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Ürün Ekle
+                </button>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    
+                        <div class="mbottom">
+                            <h2>Ürün Ekle </h2>
+                            <div class="card border-success rounded-0"></div>
+                            <br>
+                        </div>
+                        <form [formGroup]="productAddForm">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+
+                                        <input type="text" formControlName="code" class="form-control input-lg"
+                                            placeholder="Ürün Kodu*">
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="text" formControlName="productName" class="form-control input-lg"
+                                            placeholder="Ürün İsmi *">
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <textarea type="text" formControlName="description"
+                                            class="form-control input-lg" rows="3" placeholder="Ürün Açıklama *"></textarea>
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <select class="custom-select" (change)="changeCategory($event)" formControlName="categoryId">
+                                            <option value="" disabled>Kategori Seç</option>
+                                            <option *ngFor="let categories of category"  value={{categories.id}} >{{categories.categoryName}}</option>
+                                         </select>
+                                    </div>
+                                </div><br>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+    
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div><br>
+                 
+                              
+                            </div>
+                    
+                        
+                            <button class="btn btn-success" (click)="add()">Ekle</button>
+                        </form>
+                   
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <p>
+                <button class="btn btn-success" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+                    Ürün Sil
+                </button>
+            </p>
+            <div class="collapse" id="collapseExample1">
+                <div class="card card-body">
+
+                    <div class="mbottom">
+                        <h2>Ürün Sil </h2>
+                        <div class="card border-success rounded-0"></div>
+                        <br>
+                    </div>
+
+                    <form [formGroup]="productDelete" *ngFor="let products of product">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" formControlName="id" class="form-control input-lg" placeholder=""
+                                        required="" readonly><br>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" formControlName="code" class="form-control input-lg"
+                                        placeholder="" required="" readonly><br>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" formControlName="productName" class="form-control input-lg"
+                                        placeholder="" required="" readonly><br>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" formControlName="categoryId" class="form-control input-lg"
+                                        placeholder="" required="" readonly><br>
+                                </div>
+                                
+                            </div><br>
+
+                        </div>
+                        <button type="submit" class="btn btn-success" (click)="delete()">Sil</button>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>

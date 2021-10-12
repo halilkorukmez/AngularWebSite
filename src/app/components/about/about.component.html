@@ -1,0 +1,19 @@
+<div class="about" *ngFor="let abouts of about" >
+  <div [(ngModel)]="about" id="container" class="containery intro-effect-push">
+    <img [src]="createImgPath(abouts.image)" style=" height: 500px;
+    width: 1537px; "/>
+
+
+    <div class="title text-center">
+      <h1>HAKKIMIZDA</h1>
+    </div>
+  </div>
+  <article class="content" id="progress-measure">
+    <div>
+      <h2>{{abouts.title}}</h2>
+      <p>
+       {{abouts.content}}
+      </p>
+    </div>
+  </article>
+</div>

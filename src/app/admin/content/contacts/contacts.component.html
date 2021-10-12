@@ -1,0 +1,59 @@
+<div class="row">
+    <app-header></app-header>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-md-10 mt-5">           
+        <div class="col-md-6">
+            <p>
+                <button class="btn btn-success" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+                    İletişime Geçenler
+                </button>
+            </p>
+            <div class="collapse" id="collapseExample1">
+                <div class="card card-body">
+
+                    <div class="mbottom">
+                        <h2>İletişime Geçenler </h2>
+                        <div class="card border-success rounded-0"></div>
+                        <br>
+                    </div>
+
+                    <form [formGroup]="contactForm" *ngFor="let contacts of contact">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" formControlName="name" class="form-control input-lg" placeholder=""
+                                        required="" readonly><br>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" formControlName="surname" class="form-control input-lg"
+                                        placeholder="" required="" readonly><br>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" formControlName="eMail" class="form-control input-lg"
+                                        placeholder="" required="" readonly><br>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" formControlName="telephone" class="form-control input-lg"
+                                        placeholder="" required="" readonly><br>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea type="text" formControlName="content" rows="3"
+                                        class="form-control input-lg" placeholder="" required=""
+                                        readonly></textarea>
+                                </div>
+                            </div><br>
+                            <button type="submit" class="btn   btn-danger" (click)="delete()">Sil</button>
+
+                        </div>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
